@@ -6,26 +6,21 @@ clear problem_data
 
 geo_name = 'geo_square.txt';
 
-nmnn_sides   = [];
 drchlt_sides = [1 2 3 4];
 
 c_diff  = @(x, y) ones(size(x));
-grad_c_diff = @(x, y) cat (1, ...
-            reshape (zeros(size(x)), [1, size(x)]), ...
-            reshape (zeros(size(x)), [1, size(x)]));
+
 h = @(x, y, ind) x*0;
 
 p = 3;
-
 degree      = [p p];  
-
 regularity  = [degree(1)-1 degree(2)-1];     
 nsub_refine = [2 2];      
 nquad       = [5 5];      
 space_type  = 'standard'; 
 truncated   = 1;           
-
 nsub_coarse = [(2*degree(1) + 1) (2*degree(2) + 1)];
+
 
 geometry = geo_load(geo_name);
 
